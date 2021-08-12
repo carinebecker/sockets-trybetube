@@ -19,22 +19,38 @@
 			allowfullscreen
 		></iframe> -->
 		<div class="reactions">
-			<div class="btn"><button>:)</button><span id="feliz">0</span></div>
-			<div class="btn"><button>:(</button><span id="triste">0</span></div>
-			<div class="btn"><button>:o</button><span id="surpreso">0</span></div>
-			<div class="btn"><button>:|</button><span id="indiferente">0</span></div>
+			<div class="btn"><button>:)</button><span id="feliz"></span></div>
+			<div class="btn"><button>:(</button><span id="triste"></span></div>
+			<div class="btn"><button>:o</button><span id="surpreso"></span></div>
+			<div class="btn"><button>:|</button><span id="indiferente"></span></div>
 		</div>
 		<script src="/socket.io/socket.io.js"></script>
 		<script>
 			const socket = window.io();
 		</script>
 		<script>
+			const buttons = document.querySelectorAll(".btn");
+			const spanFeliz = document.querySelector('#feliz');
+			const spanTriste = document.querySelector('#triste');
+			const spanSurpreso = document.querySelector('#surpreso');
+			const spanIndiferente = document.querySelector('#indiferente');
+
+			socket.on('sendCounter', ({ counter }) => {
+				spanFeliz.innerText = counter.feliz;
+				spanTriste.innerText = counter.triste;
+				spanSurpreso.innerText = counter.surpreso;
+				spanIndiferente.innerText = counter.indiferente;
+			})
+
 			const likeCounter = () => {
-				console.log("FRONT");
-				const buttons = document.querySelectorAll(".btn");
 				buttons.forEach((btn) =>
 					btn.addEventListener("click", (e) => {
-						e.target.parentNode.lastChild.innerText++;
+						let count = e.target.parentNode.lastChild.innerText;
+						count++;
+						e.target.parentNode.lastChild.innerText = count;
+						let eventId = e.target.parentNode.lastChild.id;
+						const obj = { [eventId]: count }
+						socket.emit('increaseCounter', obj);
 					})
 				);
 			};
