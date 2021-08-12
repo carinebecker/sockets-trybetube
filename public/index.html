@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/public/style.css" type="text/css" />
+		<title>TrybeTube</title>
+	</head>
+	<body>
+		<h1>Trybe Tube ></h1>
+		<!-- <iframe
+			width="560"
+			height="315"
+			src="https://www.youtube.com/embed/ouUWJs9dflo"
+			title="YouTube video player"
+			frameborder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			allowfullscreen
+		></iframe> -->
+		<div class="reactions">
+			<div class="btn"><button>:)</button><span id="feliz">0</span></div>
+			<div class="btn"><button>:(</button><span id="triste">0</span></div>
+			<div class="btn"><button>:o</button><span id="surpreso">0</span></div>
+			<div class="btn"><button>:|</button><span id="indiferente">0</span></div>
+		</div>
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+			const socket = window.io();
+		</script>
+		<script>
+			const likeCounter = () => {
+				console.log("FRONT");
+				const buttons = document.querySelectorAll(".btn");
+				buttons.forEach((btn) =>
+					btn.addEventListener("click", (e) => {
+						e.target.parentNode.lastChild.innerText++;
+					})
+				);
+			};
+			likeCounter();
+		</script>
+	</body>
+</html>
