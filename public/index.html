@@ -8,26 +8,31 @@
 		<title>TrybeTube</title>
 	</head>
 	<body>
-		<h1>Trybe Tube ></h1>
-		<!-- <iframe
-			width="560"
-			height="315"
-			src="https://www.youtube.com/embed/ouUWJs9dflo"
-			title="YouTube video player"
-			frameborder="0"
-			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-			allowfullscreen
-		></iframe> -->
-		<div class="reactions">
-			<div class="btn"><button>:)</button><span id="feliz"></span></div>
-			<div class="btn"><button>:(</button><span id="triste"></span></div>
-			<div class="btn"><button>:o</button><span id="surpreso"></span></div>
-			<div class="btn"><button>:|</button><span id="indiferente"></span></div>
+
+		<div class="content-wrapper">
+			<h1>Trybe Tube ></h1>
+			<iframe
+				width="560"
+				height="315"
+				src="https://www.youtube.com/embed/ouUWJs9dflo"
+				title="YouTube video player"
+				frameborder="0"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+				allowfullscreen
+			></iframe>
+			<div class="reactions">
+				<div class="btn"><button>😂</button><span id="feliz"></span></div>
+				<div class="btn"><button>😭</button><span id="triste"></span></div>
+				<div class="btn"><button>😲</button><span id="surpreso"></span></div>
+				<div class="btn"><button>😐</button><span id="indiferente"></span></div>
+			</div>
 		</div>
+
 		<script src="/socket.io/socket.io.js"></script>
 		<script>
 			const socket = window.io();
 		</script>
+
 		<script>
 			const buttons = document.querySelectorAll(".btn");
 			const spanFeliz = document.querySelector('#feliz');
