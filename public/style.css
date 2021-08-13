@@ -1,14 +1,23 @@
 body {
-  margin: 0 auto;
-  width: 70%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
 }
 
 .content-wrapper {
   display: flex;
+  width: 700px;
+  height: 100vh;
+  margin: 0 auto;
   flex-direction: column;
   align-content: center;
   background-color: rgb(51, 51, 51);
-  padding: 16px 8px;
+  /* padding: 16px 8px; */
+}
+
+.content-wrapper h1 {
+  text-align: center;
+  color: whitesmoke;
 }
 
 iframe {
@@ -20,22 +29,24 @@ iframe {
   flex-direction: row;
   justify-content: flex-end;
   color: whitesmoke;
-  font-family: sans-serif;
   font-weight: 700;
 }
 
 .reactions .btn {
   margin: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .reactions .btn button {
-  font-size: 20px;
+  font-size: 36px;
   cursor: pointer;
   padding: 4px 8px;
+  margin-bottom: 2px;
   background: whitesmoke;
-  border-radius: 50%;
-}
 
-.reactions .btn span {
-  margin-left: 4px;
+  background: none;
+  border: none;
 }

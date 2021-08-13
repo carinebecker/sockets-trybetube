@@ -8,13 +8,12 @@
 		<title>TrybeTube</title>
 	</head>
 	<body>
-
 		<div class="content-wrapper">
-			<h1>Trybe Tube ></h1>
+			<h1>trybeTube</h1>
 			<iframe
-				width="560"
-				height="315"
-				src="https://www.youtube.com/embed/ouUWJs9dflo"
+				width="700"
+				height="394"
+				src="https://www.youtube.com/embed/bP6khuJYF84"
 				title="YouTube video player"
 				frameborder="0"
 				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -35,17 +34,17 @@
 
 		<script>
 			const buttons = document.querySelectorAll(".btn");
-			const spanFeliz = document.querySelector('#feliz');
-			const spanTriste = document.querySelector('#triste');
-			const spanSurpreso = document.querySelector('#surpreso');
-			const spanIndiferente = document.querySelector('#indiferente');
+			const spanFeliz = document.querySelector("#feliz");
+			const spanTriste = document.querySelector("#triste");
+			const spanSurpreso = document.querySelector("#surpreso");
+			const spanIndiferente = document.querySelector("#indiferente");
 
-			socket.on('sendCounter', ({ counter }) => {
+			socket.on("sendCounter", ({ counter }) => {
 				spanFeliz.innerText = counter.feliz;
 				spanTriste.innerText = counter.triste;
 				spanSurpreso.innerText = counter.surpreso;
 				spanIndiferente.innerText = counter.indiferente;
-			})
+			});
 
 			const likeCounter = () => {
 				buttons.forEach((btn) =>
@@ -54,8 +53,8 @@
 						count++;
 						e.target.parentNode.lastChild.innerText = count;
 						let eventId = e.target.parentNode.lastChild.id;
-						const obj = { [eventId]: count }
-						socket.emit('increaseCounter', obj);
+						const obj = { [eventId]: count };
+						socket.emit("increaseCounter", obj);
 					})
 				);
 			};
