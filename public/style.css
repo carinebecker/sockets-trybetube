@@ -11,13 +11,22 @@ body {
   margin: 0 auto;
   flex-direction: column;
   align-content: center;
-  background-color: rgb(51, 51, 51);
-  /* padding: 16px 8px; */
+  background-color: rgb(29, 29, 29);
+  padding: 0px 8px;
 }
 
 .content-wrapper h1 {
-  text-align: center;
+  margin: 16px;
   color: whitesmoke;
+}
+
+.content-wrapper h1 .symbol {
+  background-color: rgb(255, 19, 0);
+  font-size: 24px;
+  border-radius: 20px 20px / 4px 4px;
+  width: fit-content;
+  padding: 4px 16px;
+  margin-right: 8px;
 }
 
 iframe {
@@ -30,10 +39,11 @@ iframe {
   justify-content: flex-end;
   color: whitesmoke;
   font-weight: 700;
+  background-color: rgb(58, 58, 58);
 }
 
 .reactions .btn {
-  margin: 8px 16px;
+  margin: 4px 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,10 +53,6 @@ iframe {
 .reactions .btn button {
   font-size: 36px;
   cursor: pointer;
-  padding: 4px 8px;
-  margin-bottom: 2px;
-  background: whitesmoke;
-
   background: none;
   border: none;
 }
