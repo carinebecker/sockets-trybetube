@@ -7,7 +7,6 @@ let counter = {
 
 const likes = (io) => {
   io.on('connection', (sockets) => {
-    console.log('entrou');
     sockets.emit('sendCounter', { counter })
     sockets.on('increaseCounter', (eventId) => {
       counter = Object.assign(counter, eventId)

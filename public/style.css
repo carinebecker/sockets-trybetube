@@ -21,7 +21,7 @@
 .content-wrapper h1 .symbol {
   background-color: rgb(255, 19, 0);
   font-size: 24px;
-  border-radius: 20px 20px / 4px 4px;
+  border-radius: 40% 40% / 8px 8px;
   width: fit-content;
   padding: 4px 16px;
   margin-right: 8px;
